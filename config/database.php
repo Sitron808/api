@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$db_name = "api";
+$db_name = "apiDoc";
 $username = "root";
 $password = "root";
 $conn = null;
