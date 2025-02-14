@@ -2,7 +2,7 @@
 require_once __DIR__ . "../models/doctorModel.php";
 require_once __DIR__ ."../config/reponse.php";
 
-class DoctorController (){
+class DoctorController {
 
 function createDoctor($data){
     if ( !isset($data['name']) || !isset($data['speciality']) || !isset($data['zipcode'])){
