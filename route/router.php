@@ -9,15 +9,15 @@ $patientController = new PatientController();
 
 
 //Doctor Route
-$router->addRoute('POST', '/doctor', [$doctorController, 'store']);
-$router->addRoute('GET', '/doctor', [$doctorController, 'index']);
-$router->addRoute('GET', '/doctor/{id}', [$doctorController, 'show']);
+$router->addRoute('POST', '/doctor', [$doctorController, 'doctor']);
+$router->addRoute('GET', '/doctor', [$doctorController, 'all']);
+$router->addRoute('GET', '/doctor/{id}', [$doctorController, 'id']);
 $router->addRoute('PUT', '/doctor/{id}', [$doctorController, 'update']);
 $router->addRoute('DELETE', '/doctor/{id}', [$doctorController, 'destroy']);
 
 // Patient route
-$router->addRoute('POST', '/patient', [$patientController, 'store']);
-$router->addRoute('GET', '/patient', [$patientController, 'index']);
-$router->addRoute('GET', '/patient/{id}', [$patientController, 'show']);
+$router->addRoute('POST', '/patient', [$patientController, 'patient']);
+$router->addRoute('GET', '/patient', [$patientController, 'all']);
+$router->addRoute('GET', '/patient/{id}', [$patientController, 'id']);
 $router->addRoute('PATCH', '/patient/{id}', [$patientController, 'updatePassword']);
 $router->addRoute('DELETE', '/patient/{id}', [$patientController, 'destroy']);
