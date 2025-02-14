@@ -42,7 +42,7 @@ function getPatientById (){
     die();
 }
 
-function updatePatient($id, $newPassword) {
+function updatePatient($id, $password) {
     
     $existing = getPatientId($id);
     if (!$existing) {
@@ -51,12 +51,12 @@ function updatePatient($id, $newPassword) {
     }
 
     
-    if (!isset($data['password'])) {
+    if (!isset($password)) {
         echo jsonResponse(400, [], ["success" => false, "message" => "Le champs mot de passe est requis"]);
         die();
     }
 
-    $newPassword = trim($data['passoword']);
+    $password = trim($newPassword);
     
 
     $rowCount = updatePatient($id, $newPassword);
