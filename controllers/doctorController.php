@@ -12,9 +12,9 @@ function createDoctor($data){
 
     $name = trim($data['name']);
     $speciality = trim($data['speciality']);
-    $zipcode = trim($data["zipcode"])
+    $zipcode = trim($data["zipcode"]);
 
-    $new = createDoctor($name, $speciaity, $zipcode); //Erreur pas compris à revoir
+    $new = createDoctor($name, $speciaity, $zipcode); 
     echo jsonResponse(201, [], ["success" => true, "doctor_id" => $new]);
     die();
 
@@ -23,7 +23,7 @@ function createDoctor($data){
 
 function getAllDoctor (){
     $doctor = getAllDoctor();
-    echo jsonResponse(200, [], ["success" => true, "customers" => $doctor]);
+    echo jsonResponse(200, [], ["success" => true, "doctor" => $doctor]);
     die();
 
 }
@@ -31,14 +31,14 @@ function getAllDoctor (){
 function getDoctorById (){
     $doctor = getDoctorById($id);
     if (!$doctor) {
-        echo jsonResponse(404, [], ["success" => false, "message" => "Customer introuvable."]);
+        echo jsonResponse(404, [], ["success" => false, "message" => "Docteur introuvable."]);
         die();
     }
-    echo jsonResponse(200, [], ["success" => true, "customer" => $doctor]);
+    echo jsonResponse(200, [], ["success" => true, "doctor" => $doctor]);
     die();
 }
 
-function updateDoctor($id, $$data) {
+function updateDoctor($id, $name, $speciaity, $zipcode) {
     
     $existing = getDoctorById($id);
     if (!$existing) {
@@ -46,17 +46,10 @@ function updateDoctor($id, $$data) {
         die();
     }
 
-    
-    if ($data['name']) || !isset($data['speciality']) || !isset($data['zipcode']) {
-        echo jsonResponse(400, [], ["success" => false, "message" => "Tous les champs sont requis"]);
-        die();
-    }
-
     $newName = trim($data['name']);
     $newSpeciality = trim($data['speciality']);
     $newZipCode = trim($data['zipcode']);
     
-
     $rowCount = updateDoctor($id, $newName, $newSpeciality, $newZipCode);
     if ($rowCount > 0) {
         echo jsonResponse(200, [], ["success" => true, "message" => "Vos informations sont mise à jour"]);
